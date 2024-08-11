@@ -1,0 +1,121 @@
+.qwb-border {
+  border-style: solid;
+  border-radius: 8px;
+}
+
+.qwb-label {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 2px 6px;
+}
+
+.qwb-label.vert-stacked {
+  padding: 4px;
+  text-align: center;
+}
+
+.qwb-label.pos-top.align-start,
+.qwb-label.pos-bottom.align-end,
+.qwb-label.pos-left.vert-none.align-start,
+.qwb-label.pos-right.vert-none.align-end,
+.qwb-label.pos-left.vert-stacked.align-start,
+.qwb-label.pos-right.vert-stacked.align-end,
+.qwb-label.pos-left.vert-rotated-cw.align-end,
+.qwb-label.pos-right.vert-rotated-cw.align-start,
+.qwb-label.pos-left.vert-rotated-ccw.align-end,
+.qwb-label.pos-right.vert-rotated-ccw.align-start {
+  border-radius: 7px 0 7px 0;
+}
+
+.qwb-label.pos-top.align-end,
+.qwb-label.pos-bottom.align-start,
+.qwb-label.pos-left.vert-none.align-end,
+.qwb-label.pos-right.vert-none.align-start,
+.qwb-label.pos-left.vert-stacked.align-end,
+.qwb-label.pos-right.vert-stacked.align-start,
+.qwb-label.pos-left.vert-rotated-cw.align-start,
+.qwb-label.pos-right.vert-rotated-cw.align-end,
+.qwb-label.pos-left.vert-rotated-ccw.align-start,
+.qwb-label.pos-right.vert-rotated-ccw.align-end {
+  border-radius: 0 7px 0 7px;
+}
+
+.qwb-label.pos-top.align-center,
+.qwb-label.pos-right.vert-rotated-cw.align-center,
+.qwb-label.pos-left.vert-rotated-ccw.align-center {
+  border-radius: 0 0 7px 7px;
+}
+
+.qwb-label.pos-bottom.align-center,
+.qwb-label.pos-left.vert-rotated-cw.align-center,
+.qwb-label.pos-right.vert-rotated-ccw.align-center {
+  border-radius: 7px 7px 0 0;
+}
+
+.qwb-label.pos-left.vert-none.align-center,
+.qwb-label.pos-left.vert-stacked.align-center {
+  border-radius: 0 7px 7px 0;
+}
+
+.qwb-label.pos-right.vert-none.align-center,
+.qwb-label.pos-right.vert-stacked.align-center {
+  border-radius: 7px 0 0 7px;
+}
+
+/*
+ * Available classes
+ *
+ * Hierarchy:
+ *
+ * .qwb-decor
+ *  ├ .qwb-border
+ *  └ .qwb-label
+ *
+
+.qwb-indicator {
+}
+
+.qwb-decor {
+}
+
+.qwb-border {
+}
+
+.qwb-label {
+}
+
+.qwb-label.pos-top {
+}
+
+.qwb-label.pos-bottom {
+}
+
+.qwb-label.pos-left {
+}
+
+.qwb-label.pos-right {
+}
+
+.qwb-label.align-start {
+}
+
+.qwb-label.align-center {
+}
+
+.qwb-label.align-end {
+}
+
+.qwb-label.vert-none {
+}
+
+.qwb-label.vert-stacked {
+}
+
+.qwb-label.vert-rotated-cw {
+}
+
+.qwb-label.vert-rotated-ccw {
+}
+
+*/
+

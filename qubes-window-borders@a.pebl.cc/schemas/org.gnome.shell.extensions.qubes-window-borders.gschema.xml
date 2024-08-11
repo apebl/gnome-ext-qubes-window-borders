@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema id="org.gnome.shell.extensions.qubes-window-borders"
+            path="/org/gnome/shell/extensions/qubes-window-borders/">
+        <key name="colors" type="a{ss}">
+            <default>{}</default>
+            <summary>Colors</summary>
+        </key>
+
+        <key name="border-width" type="d">
+            <default>2</default>
+            <summary>Border width</summary>
+        </key>
+        <key name="border-padding" type="d">
+            <default>0</default>
+            <summary>Border padding</summary>
+        </key>
+        <key name="border-opacity" type="d">
+            <default>1</default>
+            <summary>Border opacity</summary>
+        </key>
+
+        <key name="label-enabled" type="b">
+            <default>true</default>
+            <summary>Show labels</summary>
+        </key>
+        <key name="label-dom0-visible" type="b">
+            <default>true</default>
+            <summary>Show dom0 labels</summary>
+        </key>
+        <key name="label-dispvm-template" type="b">
+            <default>true</default>
+            <summary>Show DispVM template name</summary>
+        </key>
+        <key name="label-opacity" type="d">
+            <default>1</default>
+            <summary>Label opacity</summary>
+        </key>
+        <key name="label-position" type="s">
+            <default>'top'</default>
+            <summary>Label position - top/bottom/left/right</summary>
+        </key>
+        <key name="label-alignment" type="s">
+            <default>'start'</default>
+            <summary>Label alignment - start/center/end</summary>
+        </key>
+        <key name="label-offset" type="d">
+            <default>0</default>
+            <summary>Label offset</summary>
+        </key>
+        <key name="label-inset" type="d">
+            <default>1</default>
+            <summary>Label inset</summary>
+        </key>
+        <key name="label-vertical" type="s">
+            <default>'rotated-ccw'</default>
+            <summary>Label vertical mode - none/stacked/rotated-cw/rotated-ccw</summary>
+        </key>
+
+        <key name="wm-class-styles" type="a(ss)">
+            <default>[]</default>
+            <summary>CSS style classes for WM classes</summary>
+        </key>
+    </schema>
+</schemalist>
+

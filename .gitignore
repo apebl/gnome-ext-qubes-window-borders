@@ -1,0 +1,4 @@
+node_modules/
+gschemas.compiled
+*.pot
+qubes-window-borders@a.pebl.cc.shell-extension.zip
