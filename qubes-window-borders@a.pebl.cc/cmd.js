@@ -9,7 +9,6 @@ const ExtensionUtils = imports.misc.extensionUtils
 const Me = ExtensionUtils.getCurrentExtension()
 const Globals = Me.imports.globals
 
-Gio._promisify(Gio.Subprocess.prototype, 'wait_async')
 Gio._promisify(Gio.Subprocess.prototype, 'communicate_utf8_async')
 
 async function cmd(argv, cancellable = null) {
