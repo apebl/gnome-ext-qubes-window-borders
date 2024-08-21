@@ -156,7 +156,8 @@ async function list_label_colors(cancellable = null) {
 }
 
 async function load_color_labels(cancellable = null) {
-  const colors = await list_label_colors(cancellable)
+  const list_func = list_label_colors.bind(undefined, cancellable)
+  const colors = await try_times(list_func, 3, 500, cancellable)
   for (const [label, color] of Object.entries(colors)) {
     Globals.colors.register_color(label, color)
   }
