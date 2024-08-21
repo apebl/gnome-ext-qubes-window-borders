@@ -47,6 +47,7 @@ var WindowPreview = class WindowPreview {
   #update_decor() {
     try {
       const container = this.native.window_container
+      if (!container) return
       this.decor.set_size(container.width, container.height)
     } catch (err) {
       Indicator.error(err)
@@ -55,7 +56,9 @@ var WindowPreview = class WindowPreview {
 
   #update_scale() {
     try {
-      const scale = this.native.window_container.scale_x
+      const container = this.native.window_container
+      if (!container) return
+      const scale = container.scale_x
       this.decor.set_scale(scale, scale)
     } catch (err) {
       Indicator.error(err)
