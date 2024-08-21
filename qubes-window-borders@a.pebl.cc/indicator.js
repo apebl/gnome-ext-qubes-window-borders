@@ -15,17 +15,33 @@ const Globals = Me.imports.globals
 const Log = Me.imports.log
 
 function error(err) {
-  Indicator.get().error(err)
+  const indicator = Indicator.get_or_null()
+  if (indicator) {
+    indicator.error(err)
+  } else {
+    Log.error(err)
+  }
 }
 
 var Indicator = GObject.registerClass(
   class Indicator extends PanelMenu.Button {
     static #instance
 
-    static get() {
+    static init() {
       if (!Indicator.#instance) {
         Indicator.#instance = new Indicator()
       }
+      return Indicator.#instance
+    }
+
+    static get() {
+      if (!Indicator.#instance) {
+        throw new Error('Indicator is not yet initialized.')
+      }
+      return Indicator.#instance
+    }
+
+    static get_or_null() {
       return Indicator.#instance
     }
 

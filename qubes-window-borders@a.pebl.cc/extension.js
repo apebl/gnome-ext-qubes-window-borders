@@ -28,7 +28,7 @@ class Extension {
 
   enable() {
     try {
-      const indicator = Indicator.Indicator.get()
+      const indicator = Indicator.Indicator.init()
       Main.panel.addToStatusArea(Me.metadata.uuid, indicator)
     } catch (err) {
       Log.error(err)
