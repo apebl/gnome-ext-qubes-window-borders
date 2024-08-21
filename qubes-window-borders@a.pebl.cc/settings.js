@@ -40,6 +40,12 @@ var Settings = GObject.registerClass(
 
       g.bind('label-enabled', Globals.label_style, 'enabled', Gio.SettingsBindFlags.DEFAULT)
       g.bind(
+        'label-pending-visible',
+        Globals.label_style,
+        'pending-visible',
+        Gio.SettingsBindFlags.DEFAULT,
+      )
+      g.bind(
         'label-dom0-visible',
         Globals.label_style,
         'dom0-visible',

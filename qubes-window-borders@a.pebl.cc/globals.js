@@ -186,6 +186,7 @@ var border_style = new Props(
 var label_style = new Props(
   {
     enabled: true,
+    pending_visible: true,
     dom0_visible: true,
     dispvm_template: true,
     opacity: new Props.Double(1, 0, 1),

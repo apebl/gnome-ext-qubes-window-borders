@@ -23,6 +23,12 @@ var Label = GObject.registerClass(
         }
         return
       }
+      if (color_label === 'pending' && !Globals.label_style.pending_visible) {
+        if (this.visible) {
+          this.hide()
+        }
+        return
+      }
       if (!this.visible) {
         this.show()
       }

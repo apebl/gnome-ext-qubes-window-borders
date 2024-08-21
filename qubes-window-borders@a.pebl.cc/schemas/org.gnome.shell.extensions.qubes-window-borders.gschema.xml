@@ -24,6 +24,10 @@
             <default>true</default>
             <summary>Show labels</summary>
         </key>
+        <key name="label-pending-visible" type="b">
+            <default>true</default>
+            <summary>Show pending labels</summary>
+        </key>
         <key name="label-dom0-visible" type="b">
             <default>true</default>
             <summary>Show dom0 labels</summary>

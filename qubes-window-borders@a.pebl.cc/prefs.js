@@ -577,6 +577,9 @@ class Extension {
     const label_enabled = new SwitchRow({ title: _('Labels') })
     label_group.add(label_enabled)
 
+    const label_pending_visible = new SwitchRow({ title: _('Pending Labels') })
+    label_group.add(label_pending_visible)
+
     const label_dom0_visible = new SwitchRow({ title: _('Dom0 Labels') })
     label_group.add(label_dom0_visible)
 
@@ -719,6 +722,7 @@ class Extension {
     g.bind('border-opacity', border_opacity, 'value', Gio.SettingsBindFlags.DEFAULT)
 
     g.bind('label-enabled', label_enabled, 'active', Gio.SettingsBindFlags.DEFAULT)
+    g.bind('label-pending-visible', label_pending_visible, 'active', Gio.SettingsBindFlags.DEFAULT)
     g.bind('label-dom0-visible', label_dom0_visible, 'active', Gio.SettingsBindFlags.DEFAULT)
     g.bind('label-dispvm-template', label_dispvm_template, 'active', Gio.SettingsBindFlags.DEFAULT)
     g.bind('label-opacity', label_opacity, 'value', Gio.SettingsBindFlags.DEFAULT)
@@ -729,6 +733,7 @@ class Extension {
     g.bind('label-vertical', mapper, 'label-vertical', Gio.SettingsBindFlags.DEFAULT)
 
     const binding_flags = GObject.BindingFlags.DEFAULT | GObject.BindingFlags.SYNC_CREATE
+    label_enabled.bind_property('active', label_pending_visible, 'sensitive', binding_flags)
     label_enabled.bind_property('active', label_dom0_visible, 'sensitive', binding_flags)
     label_enabled.bind_property('active', label_dispvm_template, 'sensitive', binding_flags)
     label_enabled.bind_property('active', label_opacity, 'sensitive', binding_flags)
