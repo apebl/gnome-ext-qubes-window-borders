@@ -2,7 +2,7 @@
   "name": "Qubes Window Borders",
   "description": "Draw colored window borders for VMs on Qubes OS",
   "uuid": "qubes-window-borders@a.pebl.cc",
-  "version-name": "0.1.0",
+  "version-name": "0.2.0",
   "gettext-domain": "qubes-window-borders@a.pebl.cc",
   "settings-schema": "org.gnome.shell.extensions.qubes-window-borders",
   "shell-version": ["43"]
