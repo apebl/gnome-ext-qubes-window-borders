@@ -1,4 +1,4 @@
-/* exported cmd, qubes_admin_api, get_vm_props, delay, get_window_id,
+/* exported cmd, qubes_admin_api, get_vm_props, delay, try_times, get_window_id,
             get_vmname, list_color_labels, get_label_color, list_label_colors,
             load_color_labels */
 
@@ -86,6 +86,26 @@ async function delay(ms, cancellable = null) {
       cancellable.disconnect(cancel_id)
     }
   })
+}
+
+async function try_times(async_func, times, interval, cancellable = null) {
+  while (times > 0) {
+    try {
+      const res = await async_func()
+      return res
+    } catch (err) {
+      times -= 1
+      if (times === 0) throw err
+      if (cancellable?.is_cancelled()) {
+        throw new Error('Cmd.try_times cancelled')
+      }
+      logErr(err.message, 'Tried and get an error: ')
+      delay(interval, cancellable)
+      if (cancellable?.is_cancelled()) {
+        throw new Error('Cmd.try_times cancelled')
+      }
+    }
+  }
 }
 
 function get_window_id(meta_win) {
