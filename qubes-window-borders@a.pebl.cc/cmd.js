@@ -1,6 +1,6 @@
-/* exported cmd, qubes_admin_api, get_vm_props, delay, try_times, get_window_id,
-            get_vmname, list_color_labels, get_label_color, list_label_colors,
-            load_color_labels */
+/* exported TryCancelledError, cmd, qubes_admin_api, get_vm_props, delay,
+            try_times, get_window_id, get_vmname, list_color_labels,
+            get_label_color, list_label_colors, load_color_labels */
 
 const { GLib, Gio } = imports.gi
 
@@ -10,6 +10,12 @@ const Me = ExtensionUtils.getCurrentExtension()
 const Globals = Me.imports.globals
 
 Gio._promisify(Gio.Subprocess.prototype, 'communicate_utf8_async')
+
+var TryCancelledError = class TryCancelledError extends Error {
+  constructor(...args) {
+    super(...args)
+  }
+}
 
 async function cmd(argv, cancellable = null) {
   const flags = Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE
@@ -97,12 +103,12 @@ async function try_times(async_func, times, interval, cancellable = null) {
       times -= 1
       if (times === 0) throw err
       if (cancellable?.is_cancelled()) {
-        throw new Error('Cmd.try_times cancelled')
+        throw new TryCancelledError('Cmd.try_times cancelled')
       }
       logErr(err.message, 'Tried and get an error: ')
       delay(interval, cancellable)
       if (cancellable?.is_cancelled()) {
-        throw new Error('Cmd.try_times cancelled')
+        throw new TryCancelledError('Cmd.try_times cancelled')
       }
     }
   }
