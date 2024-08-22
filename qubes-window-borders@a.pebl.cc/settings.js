@@ -30,6 +30,7 @@ var Settings = GObject.registerClass(
 
     dispose() {
       this.#native.disconnect(this.#changed_id)
+      this.#unbind()
     }
 
     #bind() {
@@ -63,6 +64,25 @@ var Settings = GObject.registerClass(
       g.bind('label-offset', Globals.label_style, 'offset', Gio.SettingsBindFlags.DEFAULT)
       g.bind('label-inset', Globals.label_style, 'inset', Gio.SettingsBindFlags.DEFAULT)
       g.bind('label-vertical', Globals.label_style, 'vertical', Gio.SettingsBindFlags.DEFAULT)
+    }
+
+    #unbind() {
+      const g = this.#native.constructor
+
+      g.unbind(Globals.border_style, 'width')
+      g.unbind(Globals.border_style, 'padding')
+      g.unbind(Globals.border_style, 'opacity')
+
+      g.unbind(Globals.label_style, 'enabled')
+      g.unbind(Globals.label_style, 'pending-visible')
+      g.unbind(Globals.label_style, 'dom0-visible')
+      g.unbind(Globals.label_style, 'dispvm-template')
+      g.unbind(Globals.label_style, 'opacity')
+      g.unbind(Globals.label_style, 'position')
+      g.unbind(Globals.label_style, 'alignment')
+      g.unbind(Globals.label_style, 'offset')
+      g.unbind(Globals.label_style, 'inset')
+      g.unbind(Globals.label_style, 'vertical')
     }
 
     fetch() {
