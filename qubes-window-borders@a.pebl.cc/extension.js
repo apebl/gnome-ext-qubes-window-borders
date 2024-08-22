@@ -47,7 +47,10 @@ class Extension {
 
       this.#changed_id = this.#settings.connect('changed', this.#settings_changed.bind(this))
 
-      this.#load().catch((err) => Indicator.error(err))
+      this.#load().catch((err) => {
+        if (err instanceof Cmd.TryCancelledError) return
+        Indicator.error(err)
+      })
     } catch (err) {
       Indicator.error(err)
     }
