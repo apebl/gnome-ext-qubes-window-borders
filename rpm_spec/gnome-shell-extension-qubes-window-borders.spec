@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name: gnome-shell-extension-qubes-window-borders
-Version: 0.2.1
+Version: 0.2.2
 Release: %autorelease
 
 Summary: Draw colored window borders for VMs on Qubes OS
